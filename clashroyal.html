@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clash Royale</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('clashroyall.png') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            color: white;
+            position: relative;
+        }
+
+        header {
+            background-color: rgba(51, 51, 51, 0.8);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            background-color: transparent;
+            flex-grow: 1;
+        }
+
+        .menu {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .menu li {
+            position: relative;
+        }
+
+        .dropbtn {
+            background-color: rgba(51, 51, 51, 0.8);
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            margin-left: 2cm;
+            text-decoration: none;
+        }
+
+        .menu li a {
+            color: white;
+            text-decoration: none; /* Премахване на подчертаването */
+        }
+
+        .menu li a:hover {
+            background-color: #555;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(22, 15, 15, 0.9);
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none; /* Премахване на подчертаването */
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .title-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-grow: 1;
+            padding-right: 3cm; /* Отстъп за десния бутон */
+        }
+
+        .title {
+            margin: 0;
+            font-size: 2em;
+            color: white;
+            text-decoration: none; /* Премахване на подчертаването */
+            flex-grow: 1;
+        }
+
+        .logo {
+            height: 50px;
+            margin-right: 20px; /* Преместване на логото наляво */
+            background-color: transparent;
+        }
+
+        .button-group {
+            display: flex;
+            align-items: center;
+        }
+
+        .youtube-button {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            text-decoration: none; /* Премахване на подчертаването */
+            margin-left: 10px; /* Отстояние между бутоните */
+        }
+
+        .youtube-button:hover {
+            background-color: darkred;
+        }
+
+        .download-button {
+            background-color: purple; /* Лилав цвят */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            text-decoration: none; /* Премахване на подчертаването */
+            margin-left: 10px; /* Отстояние между бутоните */
+        }
+
+        .download-button:hover {
+            background-color: darkmagenta;
+        }
+
+        .main-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .intro-video-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 20px;
+            margin-right: 3cm;
+        }
+
+        .intro {
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1;
+            max-width: 45%;
+            text-align: center;
+            margin-left: 2cm;
+        }
+
+        .info-box {
+            background-color: rgba(0, 51, 102, 0.8);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            font-size: 1.2em;
+            line-height: 1.6;
+            text-decoration: none; /* Премахване на подчертаването */
+        }
+
+        .info-box h2,
+        .info-box p {
+            color: white;
+            text-decoration: none; /* Премахване на подчертаването */
+        }
+
+        .video {
+            background-color: rgba(0, 51, 102, 0.8);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1.2;
+            text-align: center;
+            max-width: 45%;
+            text-decoration: none; /* Премахване на подчертаването */
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            width: 100%;
+            background: #000;
+            text-decoration: none; /* Премахване на подчертаването */
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .cloud {
+            position: relative;
+            background: #808080;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 800px;
+            font-size: 1.4em;
+            line-height: 1.6;
+            border-radius: 50px;
+            text-decoration: none; /* Премахване на подчертаването */
+        }
+
+        .banner {
+            width: calc(100% - 4cm);
+            margin: 20px auto;
+            text-align: center;
+            text-decoration: none; /* Премахване на подчертаването */
+        }
+
+        .banner img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .youtube-description {
+            background: #003366;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 800px;
+            font-size: 1.2em;
+            border-radius: 10px;
+            line-height: 1.6;
+            text-decoration: none; /* Премахване на подчертаването */
+        }
+
+        .arrow {
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid white;
+            margin: 10px auto;
+            position: relative;
+        }
+
+        .arrow::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 30px;
+            background: white;
+        }
+
+        .youtube-channel {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 10px;
+            text-decoration: none; /* Премахване на подчертаването */
+        }
+
+        .subscribe-button {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            text-decoration: none; /* Премахване на подчертаването */
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .download-section {
+            background-color: #003366; /* Син непрозрачен фон */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 10px;
+            font-size: 1.2em;
+            line-height: 1.6;
+            text-decoration: none; /* Премахване на подчертаването */
+        }
+
+        .download-section .arrow {
+            margin-top: 10px;
+        }
+
+        .download-link {
+            background-color: white;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .download-link:hover {
+            background-color: lightgray;
+        }
+
+        .side-bar {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            width: 2cm;
+            background: url('clajaroyale.png') repeat;
+            background-size: contain;
+        }
+
+        .side-bar.left {
+            left: 0;
+        }
+
+        .side-bar.right {
+            right: 0;
+        }
+
+        a {
+            text-decoration: none; /* Премахване на подчертаването за всички линкове */
+        }
+
+        a:hover {
+            text-decoration: none; /* Премахване на подчертаването при задържане за всички линкове */
+        }
+    </style>
+    <script src="https://apis.google.com/js/platform.js"></script>
+</head>
+<body>
+    <div class="side-bar left"></div>
+    <div class="side-bar right"></div>
+    <header>
+        <nav>
+            <ul class="menu">
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Меню</a>
+                    <div class="dropdown-content">
+                        <a href="cards.html">Карти</a>
+                        <a href="arenas.html">Арени</a>
+                        <a href="shop.html">Магазин</a>
+                        <a href="contact.html">Контакти</a>
+                    </div>
+                </li>
+            </ul>
+            <img src="logo.png" alt="Logo" class="logo">
+        </nav>
+        <div class="title-container">
+            <h1 class="title">Clash Royale</h1>
+            <div class="button-group">
+                <a href="#download-section" class="download-button">Изтеглете Clash Royale</a>
+                <a href="https://www.youtube.com/channel/CHANNEL_ID" target="_blank" class="youtube-button">Моят YouTube канал</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="content">
+        <section class="intro-video-container">
+            <div class="intro">
+                <div class="info-box">
+                    <h2>Добре дошли в Clash Royale!</h2>
+                    <p>
+                        Clash Royale е стратегическа игра в реално време, разработена от Supercell. В нея играчите събират и надграждат карти, представляващи войски, магии и защити, и ги използват в битки срещу други играчи. Целта е да унищожите кулите на противника, като използвате своята колекция от карти и стратегически умения.
+                    </p>
+                </div>
+            </div>
+
+            <div class="video">
+                <h2>Гледайте трейлъра на играта</h2>
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/TJryIc0Cwy4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+        <div class="cloud">
+            Clash Royale е една от най-успешните мобилни игри за 21 век със над 500 милиона изтегляния. Заслужава да се опитате да я играете!
+        </div>
+        <div class="banner">
+            <img src="bannner.png" alt="Banner Image">
+        </div>
+        <div class="youtube-description">
+            Това е моят YouTube канал, където качвам забавни кратки клипове свързани с Clash Royale.
+        </div>
+        <div class="arrow"></div>
+        <div class="youtube-channel">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/JqwdszAlKLI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <br>
+            <div class="g-ytsubscribe" data-channelid="CHANNEL_ID" data-layout="default" data-count="default"></div>
+        </div>
+        <div id="download-section" class="download-section">
+            Ето от тук можете да изтеглите Clash Royale
+            <div class="arrow"></div>
+            <a href="https://play.google.com/store/apps/details?id=com.supercell.clashroyale" class="download-link" target="_blank">Изтеглете Clash Royale</a>
+        </div>
+    </main>
+</body>
+</html>
